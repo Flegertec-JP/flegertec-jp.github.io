@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta name="google-adsense-account" content="ca-pub-9169684013688440">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-9169684013688440">
     <link rel="icon" href="picture/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
     <script src="script.js"></script>
     <title>Flegertec</title>
-	
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="picture/icon.png" alt="ロゴ" class="logo" id="logoImage">
+            <span>Flegertec</span>
+        </div>
+    </div>
+    <header>
+        <h1>Flegertec</h1>
+        <h2>プログラミングチーム</h2>
+    </header>
+    <div class="container">
+        <div class="server-info">
+            <h2>概要</h2>
+            <p>主にHTML,CSS,JavaScriptを使っていろいろ作ってます。</p>
+            <h2>過去の作品（代表作）</h2>
+            <table>
+                <tr>
+                    <th>リンク</th>
+                    <th>説明</th>
+                </tr>
+                <tr>
+                    <td><a href="https://sk0528jp.github.io/uuid/" target="_blank">UUID生成システム</a></td>
+                    <td>ランダムにUUIDを生成しコピーできます。</td>
+                </tr>
+                <tr>
+                    <td><a href="https://sk0528jp.github.io/caesar/" target="_blank">カエサル暗号変換システム</a></td>
+                    <td>カエサル暗号⇔英字を暗号鍵ごとに変換するシステムです。</td>
+                </tr>
+                <tr>
+                    <td><a href="https://sk0528jp.github.io/temperature-conversion/" target="_blank">摂氏・華氏換算システム</a></td>
+                    <td>摂氏℃と華氏℉をそれぞれ換算するシステムです。</td>
+                </tr>
+            </table>
+            <p>全作品の中に計算機がありますが破損しているまま放置し続けています（）。動作しないのでご承知おきを...</p>
+            <h2>リンクボタン</h2>
+            <a class="button normal-button" href="https://sk0528jp.github.io/system-list/" target="_blank">全作品一覧ページ</a>
+        </div>
+    </div>
+
+    <!-- Social Share Buttons (right bottom) -->
+    <div class="social-buttons">
+        <a href="https://discord.gg/HZnKpYJJsu" class="social-button" target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="#" class="social-button" target="_blank"><i class="fab fa-bluesky"></i></a>
+        <a href="#" class="social-button" target="_blank"><i class="fab fa-skype"></i></a>
+        <a href="#" class="social-button" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-button" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:flegertec@gmail.com" class="social-button" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <footer>
+        <p>今年は<script type="text/javascript">ShowNowYear();</script>年</p>
+        <div class="footer-buttons">
+            <a class="button bluesky-button" href="#" target="_blank">BlueSky</a>
+        </div>
+        <p>&copy;Flegertec Aktivitetsperiod 2023〜2024</p>
+    </footer>
+
+    <!-- JavaScript Function to Display Current Year -->
     <script type="text/javascript">
         function ShowNowYear() {
             var now = new Date();
@@ -17,83 +76,5 @@
             document.write(year);
         }
     </script>
-
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            　<img src="picture/icon.png" alt="ロゴ" class="logo" id="logoImage"><audio id="audioPlayer" src="audio/jrsh3.mp3" preload="auto"></audio>
-            <span style="font-size: 32px;">Flegertec</span>
-        </div>
-    </div>
-    <header>
-        <h1 style="margin-top: 64px;">
-            <font size="7">Flegertec</font>
-            <br><font size="4">プログラミングチーム</font>
-        </h1>
-    </header>
-    <div class="container">
-        <div class="server-info">
-            <h2>概要</h2>
-            <p>主にHTML,CSS,JavaScriptを使っていろいろ作ってます。
-            <h2>過去の作品（代表作）</h2>
-            <p>
-                <table>
-                    <tr>
-                        <th><b>リンク</b></th>
-                        <th><b>説明</b></th>
-                    </tr>
-                    <tr>
-                        <td><a href="https://sk0528jp.github.io/uuid/" target="_blank">UUID生成システム</a></td>
-                        <td>ランダムにUUIDを生成しコピーできます。</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://sk0528jp.github.io/caesar/" target="_blank">カエサル暗号変換システム</a></td>
-                        <td>カエサル暗号⇔英字を暗号鍵ごとに変換するシステムです。</td>
-                    </tr>
-		    <tr>
-                        <td><a href="https://sk0528jp.github.io/temperature-conversion/" target="_blank">摂氏・華氏換算システム</a></td>
-                        <td>摂氏℃と華氏℉をそれぞれ換算するシステムです。</td>
-                    </tr>
-                </table>
-            <br>
-		<p>全作品の中に計算機がありますが破損しているまま放置し続けています（）
-		<br>動作しないのでご承知おきを...</p>
-            <br>
-            <h2>リンクボタン</h2>
-            <br>
-            <a class="button normal-button" href="https://sk0528jp.github.io/system-list/" target="_blank">全作品一覧ページ</a>
-            <br>
-        </div>
-    </div>
-	 
-					 <!-- Social Share Buttons (right bottom) -->
-<div class="social-buttons">
-    <a href="https://discord.gg/HZnKpYJJsu" class="social-button" target="_blank"><i class="fa-brands fa-discord"></i></a>
-    <a href="#" class="social-button" target="_blank"><i class="fa-brands fa-bluesky"></i></a>
-    <a href="#" class="social-button" target="_blank"><i class="fa-brands fa-skype"></i></a>
-    <a href="#" class="social-button" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-    <a href="#" class="social-button" target="_blank"><i class="fa-brands fa-github"></i></a>
-    <a href="mailto:flegertec@gmail.com" class="social-button" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-</div>
-
-
-    <br>
-	 
-    <footer>
-	    <br>
-	    今年は<script type="text/javascript">ShowNowYear();</script>年
-	    <br><br>
-        <div class="footer-buttons">
-            <a class="button bluesky-button" href="#" target="_blank">BlueSky</a>
-        </div>
-	    <br><br>
-        &copy;Flegertec Aktivitetsperiod 2023〜2024
-        <br>
-        <br>
-    </footer>
-
-
-	
 </body>
 </html>

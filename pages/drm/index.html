@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flegertec 著作権管理システム</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 50%; margin: auto; }
+        input, button, select { margin: 10px; padding: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+        #noResult { display: none; color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Flegertec 著作権管理システム</h2>
+        <input type="text" id="searchID" placeholder="管理番号M/V/I/Oxxxxxを入力">
+        <button onclick="searchData()">検索</button>
+        <p id="noResult">見つかりませんでした</p>
+        <br>
+        <label>並び替え:</label>
+        <select id="sortFilter" onchange="sortData()">
+            <option value="dateDesc">登録年月日(降順)</option>
+            <option value="dateAsc">登録年月日(昇順)</option>
+            <option value="titleDesc">タイトル(降順)</option>
+            <option value="titleAsc">タイトル(昇順)</option>
+        </select>
+        <label>カテゴリ:</label>
+        <select id="categoryFilter" onchange="filterData()">
+            <option value="all">すべて</option>
+            <option value="Music">Music</option>
+            <option value="Image">Image</option>
+            <option value="Video">Video</option>
+            <option value="Other">Other</option>
+        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>管理番号</th>
+                    <th>タイトル</th>
+                    <th>製作者</th>
+                    <th>カテゴリ</th>
+                    <th>登録年月日</th>
+                </tr>
+            </thead>
+            <tbody id="dataList"></tbody>
+        </table>
+    </div>
+    <script>
+        let data = [
+            { id: "M00001", title: "Flegertec_01", author: "Advizormcpe1", category: "Music", date: "2025/02/08" },
+        ];
+
+        function searchData() {
+            const searchID = document.getElementById("searchID").value;
+            const regex = /^[MIVO]\d{5}$/;
+            const tableBody = document.getElementById("dataList");
+            const noResult = document.getElementById("noResult");
+            tableBody.innerHTML = "";
+            
+            if (searchID === "") {
+                renderData();
+                noResult.style.display = "none";
+                return;
+            }
+
+            if (!regex.test(searchID)) {
+                alert("無効な管理番号形式です");
+                return;
+            }
+
+            const filteredData = data.filter(item => item.id === searchID);
+            
+            if (filteredData.length === 0) {
+                noResult.style.display = "block";
+            } else {
+                noResult.style.display = "none";
+                filteredData.forEach(item => {
+                    let row = `<tr>
+                        <td>${item.id}</td>
+                        <td>${item.title}</td>
+                        <td>${item.author}</td>
+                        <td>${item.category}</td>
+                        <td>${item.date}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+
+        function sortData() {
+            const sortType = document.getElementById("sortFilter").value;
+            if (sortType === "dateDesc") {
+                data.sort((a, b) => b.date.localeCompare(a.date));
+            } else if (sortType === "dateAsc") {
+                data.sort((a, b) => a.date.localeCompare(b.date));
+            } else if (sortType === "titleDesc") {
+                data.sort((a, b) => b.title.localeCompare(a.title));
+            } else if (sortType === "titleAsc") {
+                data.sort((a, b) => a.title.localeCompare(b.title));
+            }
+            renderData();
+        }
+
+        function filterData() {
+            renderData();
+        }
+
+        function renderData() {
+            const category = document.getElementById("categoryFilter").value;
+            const tableBody = document.getElementById("dataList");
+            const noResult = document.getElementById("noResult");
+            tableBody.innerHTML = "";
+            
+            const filteredData = data.filter(item => category === "all" || item.category === category);
+            
+            if (filteredData.length === 0) {
+                noResult.style.display = "block";
+            } else {
+                noResult.style.display = "none";
+                filteredData.forEach(item => {
+                    let row = `<tr>
+                        <td>${item.id}</td>
+                        <td>${item.title}</td>
+                        <td>${item.author}</td>
+                        <td>${item.category}</td>
+                        <td>${item.date}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            }
+        }
+        
+        renderData();
+    </script>
+</body>
+</html>
